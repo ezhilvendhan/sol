@@ -1,3 +1,22 @@
+/**
+ * 1. Import this file to your html;
+ * 2. open the html in 2 or more tabs
+ * 3. From console, use tc.send("SOME DATA", 1) to send message to tab 2
+ * 4. Methods:
+ *    sendAll - Broadcast Message to all open tabs; @params(msg)
+
+      send - Send message to a single tab. Use tc#getId() to get ID of any tab;
+              @params(msg, tabId1, tabId2...)
+
+      receive -  gets sent msg @param()
+
+      reset - resets the localstorage; @param()
+
+      clear - clears Tab related data from the localstorage; @param()
+
+      getId - returns the current tab's id; @param()
+ */
+
 var tc = (function() {
   const TABS = "TabCommunicator.tabs";
   var _id,
@@ -87,15 +106,29 @@ var tc = (function() {
 
   init();
   return {
+    //Broadcast Message to all open tabs;
+    //@params(msg)
     sendAll: sendMsg,
+
+    //Send message to a single tab. Use tc#getId() to get ID of any tab ;
+    //@params(msg, tabId1, tabId2...)
     send: sendMsg,
+
+    //Receive msg @param()
     receive: receiveMsg,
+
+    //resets the localstorage; @param()
     reset: _destroy,
+
+    //clears Tab related data from the localstorage; @param()
     clear: clear,
-    id: function() { return _id;}
+
+    //returns the current tab's id; @param()
+    getId: function() { return _id;}
   }
 })();
 
+//Alerts New msg every 5 sec.
 setInterval(function() {
   var msg = tc.receive();
   if(msg) alert(msg);
