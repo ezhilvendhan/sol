@@ -7,16 +7,18 @@ Solutions to Code Challenges.
    * Import this file to your html;
    * open the html in 2 or more tabs
    * From console, use tc.send("SOME DATA", 1) to send message to tab 2
-   * Methods:
-      sendAll - Broadcast Message to all open tabs; @params(msg)
 
-      send - Send message to a single tab. Use tc#getId() to get ID of any tab;
+   * Methods:
+
+      1 sendAll - Broadcast Message to all open tabs; @params(msg)
+
+      2 send - Send message to a single tab. Use tc#getId() to get ID of any tab;
               @params(msg, tabId1, tabId2...)
 
-      receive -  gets sent msg @param()
+      3 receive -  gets sent msg @param()
 
-      reset - resets the localstorage; @param()
+      4 reset - resets the localstorage; @param()
 
-      clear - clears Tab related data from the localstorage; @param()
+      5 clear - clears Tab related data from the localstorage; @param()
 
-      getId - returns the current tab's id; @param()
+      6 getId - returns the current tab's id; @param()
